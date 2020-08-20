@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { useEffect, useState } from 'react';
 import { Container, Navbar, Nav, Button, Image, Table, thead, th, tr, td, tbody } from 'react-bootstrap';
 import waterplant from '../images/plant.png';
-
+import styled from 'styled-components';
 
 function Home(props) {
 
@@ -32,10 +32,15 @@ function Home(props) {
 
     }, []);
 
+    const cell = {
+        backgroundColor: 'F5F5DC'
 
-    const style = {
+    }
+    const imgStyle = {
         height: '150.25',
-        width: '149px'
+        width: '149px',
+        text: 'center',
+        
     }
 
     const water = {
@@ -45,7 +50,8 @@ function Home(props) {
 
     const bg = {
         backgroundColor: '#FFB6C1',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        text:'center'
 
     }
 
@@ -86,53 +92,87 @@ function Home(props) {
         fontWeight: 'bold'
     }
 
+    const BtnSignup = styled.button`
+    background: "#000000";
+    color: '#FFE4C4;
+    &:hover {
+        color: #7FFF00 '
+    }   
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    position: absolute;
+    right: 50px;
+    `
+
+    const BtnLogin = styled.button`
+    background: "#000000";
+    color: '#FFE4C4;
+    &:hover {
+        color: #7FFF00 '
+    }   
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+    padding: 0.5em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    position: absolute;
+    right: 150px;
+    `
+
+
+
     return (
 
 
         <>
-            <Container style={bg} className='text-center' fluid>
+            <Container className='text-center' fluid>
+                
 
-                <Button style={buttext} variant='outline-primary' className='float-left m-2 font-weight-bold'> Login</Button>
-                <Button style={buttext} variant='outline-primary' className='float-left m-2 font-weight-bold'> Signup</Button>
-
-                <h1 style={water} className='font-weight-bold fixed-top'>
-                    Water Me
+                <div style={bg} className='text-center'>
+                <BtnLogin> Login</BtnLogin>
+                <BtnSignup> Signup</BtnSignup>
+                    <h1 style={water} className='font-weight-bold fixed-top'>
+                        Water Me
               </h1>
 
 
-                <br></br>
-                <br></br>
-                <br></br>
-                <Image style={style} src={waterplant} alt='plant watering by Icon Island from the Noun Project' rounded />
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Image style={imgStyle} src={waterplant} alt='plant watering by Icon Island from the Noun Project' rounded />
+                </div>
 
-                <Table style={tablebord} bordered hover>
-                    <thead className='thead-dark' >
-                        <tr  >
-                            <th style={headtext}>Type of Plant</th>
-                            <th style={headtext}>Plant Name</th>
-                            <th style={headtext}>Watering Frequency</th>
-                            <th style={headtext}>Location</th>
-                            <th style={headtext}>Time Left to Water</th>
+                <Table style={tablebord} bordered>
+
+
+                    <thead className='thead-light table-bordered' style={cell}>
+                        <tr style={cell}>
+                            <th style={planttext}>Type of Plant</th>
+                            <th style={watertext}>Watering Frequency</th>
+                            <th style={loctext}>Location</th>
+                            <th style={needtext}>Time Left to Water</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={cell}>
                         <tr>
                             <td style={planttext}>Azalea</td>
-                            <td style={nametext}>Polly</td>
                             <td style={watertext}>Once a Week</td>
                             <td style={loctext}>1st plant to right of door</td>
                             <td style={needtext}>Yes, two days overdue</td>
                         </tr>
                         <tr>
                             <td style={planttext}>Zebra </td>
-                            <td style={nametext}>Jakey</td>
                             <td style={watertext}>Every Day</td>
                             <td style={loctext}>Inside next to TV</td>
                             <td style={needtext}>Yes, two days overdue</td>
                         </tr>
                         <tr>
                             <td style={planttext}>Schefflera</td>
-                            <td style={nametext}>Sarah</td>
                             <td style={watertext}>Once every 2 weeks</td>
                             <td style={loctext}>Inside my room</td>
                             <td style={needtext}>Yes, two days overdue</td>
